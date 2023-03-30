@@ -1,0 +1,61 @@
+import Responsavel from "../models/responsavel.js"
+
+const ResponsavelController = {
+    getAll: async (_, res) => {
+        const responsaveis = await Responsavel.findAll()
+        return res.status(200).json(responsaveis)
+    },
+
+    getResponsavel: async (req, res) => {
+        const { id } = req.params
+
+        try{
+            const responsavel = await Responsavel.findByPk(id)
+            return res.status(200).json(responsavel)
+        }catch(error){
+            console.log(error)
+            return res.status(500).json({message: `Ocorreu um erro ao tentar buscar o responsavel, contate a equipe de suporte.`})
+        }
+    },
+
+    createResponsavel: async(req, res) => {
+        const { nome, cargo, setor } = req.body
+        const responsavelDTO = { nome, cargo, setor }
+
+        try{
+            const newResponsavel = await Responsavel.create(responsavelDTO)
+            return res.status(201).json(newResponsavel)
+        }catch(error){
+            console.log(error)
+            return res.status(500).json({message: 'Ocorreu um erro ao criar o responsavel, contate a equipe de suporte.'})
+        }
+    },
+
+    updateResponsavel: async(req, res) => {
+        const { id } = req.params
+        const { nome, cargo, setor } = req.body
+        const responsavelDTO = { nome, cargo, setor }
+
+        try{
+            const updatedResponsavel = await Responsavel.update(responsavelDTO, {where: { id }, returning: true})
+            return res.status(204).json(updatedResponsavel)
+        }catch(error){
+            console.log(error)
+            return res.status(500).json({message: 'Ocorreu um erro ao atualizar o responsavel, contate a equipe de suporte.'})
+        }
+    },
+
+    deleteResponsavel: async(req, res) => {
+        const { id } = req.params
+
+        try{
+            const deletedResponsavel = await Responsavel.destroy({where: { id }})
+            return res.status(204).json(deletedResponsavel)
+        }catch(error){
+            console.log(error)
+            return res.status(500).json({message: `Ocorreu um erro ao tentar deletar o responsavel, contate a equipe de suporte.`})
+        }
+    }
+}
+
+export default ResponsavelController
