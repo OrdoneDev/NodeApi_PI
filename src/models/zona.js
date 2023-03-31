@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize"
-import database from "../../database.js"
+import database from "../config/database.js"
 
 const Zona = database.define('zona', {
     id_zona: {

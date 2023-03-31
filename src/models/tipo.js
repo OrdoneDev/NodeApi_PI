@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize"
-import database from "../../database.js"
+import database from "../config/database.js"
 
 const Tipo = database.define('tipo', {
     id_tipo: {

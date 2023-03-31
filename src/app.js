@@ -1,5 +1,5 @@
 import express from "express"
-import { initDatabase } from "./database.js"
+import { initDatabase } from "./config/database.js"
 import routes from "./routes/index.js"
 import * as dotenv from 'dotenv'
 
