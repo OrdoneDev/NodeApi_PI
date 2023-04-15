@@ -7,10 +7,10 @@ const EquipamentoController = {
     },
 
     getEquipamento: async (req, res) => {
-        const { id } = req.params
+        const { id_equipamento } = req.params
 
         try{
-            const equipamento = await Equipamento.findByPk(id)
+            const equipamento = await Equipamento.findByPk(id_equipamento)
             return res.status(200).json(equipamento)
         }catch(error){
             console.log(error)
@@ -32,12 +32,12 @@ const EquipamentoController = {
     },
 
     updateEquipamento: async(req, res) => {
-        const { id } = req.params
+        const { id_equipamento } = req.params
         const { id_tipo, nome, descricao, unidade_medida, codigo_sap } = req.body
         const equipamentoDTO = { id_tipo, nome, descricao, unidade_medida, codigo_sap }
 
         try{
-            const updatedEquipamento = await Equipamento.update(equipamentoDTO, {where: { id }, returning: true})
+            const updatedEquipamento = await Equipamento.update(equipamentoDTO, {where: { id_equipamento }, returning: true})
             return res.status(204).json(updatedEquipamento)
         }catch(error){
             console.log(error)
@@ -46,10 +46,10 @@ const EquipamentoController = {
     },
 
     deleteEquipamento: async(req, res) => {
-        const { id } = req.params
+        const { id_equipamento } = req.params
 
         try{
-            const deletedEquipemento = await Equipamento.destroy({where: { id }})
+            const deletedEquipemento = await Equipamento.destroy({where: { id_equipamento }})
             return res.status(204).json(deletedEquipemento)
         }catch(error){
             console.log(error)

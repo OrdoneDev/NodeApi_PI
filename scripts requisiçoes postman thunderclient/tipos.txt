@@ -1,0 +1,29 @@
+[
+    {
+        "nome": "Painel de operação"
+    },
+    {
+        "nome": "Fonte chaveada"
+    },
+    {
+        "nome": "Modulo de potencia"
+    },
+    {
+        "nome": "Motor"
+    },
+    {
+        "nome": "CLP"
+    },
+    {
+        "nome": "Modulo IO"
+    },
+    {
+        "nome": "Inversor de frequencia"
+    },
+    {
+        "nome": "Modulo IO"
+    },
+    {
+        "nome": "Encoder"
+    }
+]

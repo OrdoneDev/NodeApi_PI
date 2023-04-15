@@ -7,10 +7,10 @@ const ZonaController = {
     },
 
     getZona: async (req, res) => {
-        const { id } = req.params
+        const { id_zona } = req.params
 
         try{
-            const zona = await Zona.findByPk(id)
+            const zona = await Zona.findByPk(id_zona)
             return res.status(200).json(zona)
         }catch(error){
             console.log(error)
@@ -32,12 +32,12 @@ const ZonaController = {
     },
 
     updateZona: async(req, res) => {
-        const { id } = req.params
+        const { id_zona } = req.params
         const { nome, descricao } = req.body
         const zonaDTO = { nome, descricao }
 
         try{
-            const updatedZona = await Zona.update(zonaDTO, {where: { id }, returning: true})
+            const updatedZona = await Zona.update(zonaDTO, {where: { id_zona }, returning: true})
             return res.status(204).json(updatedZona)
         }catch(error){
             console.log(error)
@@ -46,10 +46,10 @@ const ZonaController = {
     },
 
     deleteZona: async(req, res) => {
-        const { id } = req.params
+        const { id_zona } = req.params
 
         try{
-            const deletedZona = await Zona.destroy({where: { id }})
+            const deletedZona = await Zona.destroy({where: { id_zona }})
             return res.status(204).json(deletedZona)
         }catch(error){
             console.log(error)

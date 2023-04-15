@@ -7,9 +7,9 @@ const router = Router()
 
 router
     .get("/movimentacoes", getAll)
-    .get("/movimentacoes/:id", getMovimentacao)
+    .get("/movimentacoes/:id_movimentacao", getMovimentacao)
     .post("/movimentacoes", createMovimentacao)
-    .put("/movimentacoes/:id", updateMovimentacao)
-    .delete("/movimentacoes/:id", deleteMovimentacao)
+    .put("/movimentacoes/:id_movimentacao", updateMovimentacao)
+    .delete("/movimentacoes/:id_movimentacao", deleteMovimentacao)
 
 export default router

@@ -7,9 +7,9 @@ const router = Router()
 
 router
     .get("/equipamentos", getAll)
-    .get("/equipamentos/:id", getEquipamento)
+    .get("/equipamentos/:id_equipamento", getEquipamento)
     .post("/equipamentos", createEquipamento)
-    .put("/equipamentos/:id", updateEquipamento)
-    .delete("/equipamentos/:id", deleteEquipamento)
+    .put("/equipamentos/:id_equipamento", updateEquipamento)
+    .delete("/equipamentos/:id_equipamento", deleteEquipamento)
 
 export default router

@@ -7,10 +7,10 @@ const TipoController = {
     },
 
     getTipo: async (req, res) => {
-        const { id } = req.params
+        const { id_tipo } = req.params
 
         try{
-            const tipo = await Tipo.findByPk(id)
+            const tipo = await Tipo.findByPk(id_tipo)
             return res.status(200).json(tipo)
         }catch(error){
             console.log(error)
@@ -32,12 +32,12 @@ const TipoController = {
     },
 
     updateTipo: async(req, res) => {
-        const { id } = req.params
+        const { id_tipo } = req.params
         const { nome } = req.body
         const tipoDTO = { nome }
 
         try{
-            const updatedTipo = await Tipo.update(tipoDTO, {where: { id }, returning: true})
+            const updatedTipo = await Tipo.update(tipoDTO, {where: { id_tipo }, returning: true})
             return res.status(204).json(updatedTipo)
         }catch(error){
             console.log(error)
@@ -46,10 +46,10 @@ const TipoController = {
     },
 
     deleteTipo: async(req, res) => {
-        const { id } = req.params
+        const { id_tipo } = req.params
 
         try{
-            const deletedTipo = await Tipo.destroy({where: { id }})
+            const deletedTipo = await Tipo.destroy({where: { id_tipo }})
             return res.status(204).json(deletedTipo)
         }catch(error){
             console.log(error)

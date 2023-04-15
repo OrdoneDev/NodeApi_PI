@@ -7,10 +7,10 @@ const MovimentacaoController = {
     },
 
     getMovimentacao: async (req, res) => {
-        const { id } = req.params
+        const { id_movimentacao } = req.params
 
         try{
-            const movimentacao = await Movimentacao.findByPk(id)
+            const movimentacao = await Movimentacao.findByPk(id_movimentacao)
             return res.status(200).json(movimentacao)
         }catch(error){
             console.log(error)
@@ -32,12 +32,12 @@ const MovimentacaoController = {
     },
 
     updateMovimentacao: async(req, res) => {
-        const { id } = req.params
+        const { id_movimentacao } = req.params
         const { id_equipamento, id_zona, id_responsavel, data_entrada, status, quantidade, observacao } = req.body
         const movimentacaoDTO = { id_equipamento, id_zona, id_responsavel, data_entrada, status, quantidade, observacao }
 
         try{
-            const updatedMovimentacao = await Movimentacao.update(movimentacaoDTO, {where: { id }, returning: true})
+            const updatedMovimentacao = await Movimentacao.update(movimentacaoDTO, {where: { id_movimentacao }, returning: true})
             return res.status(204).json(updatedMovimentacao)
         }catch(error){
             console.log(error)
@@ -46,10 +46,10 @@ const MovimentacaoController = {
     },
 
     deleteMovimentacao: async(req, res) => {
-        const { id } = req.params
+        const { id_movimentacao } = req.params
 
         try{
-            const deletedMovimentacao = await Movimentacao.destroy({where: { id }})
+            const deletedMovimentacao = await Movimentacao.destroy({where: { id_movimentacao }})
             return res.status(204).json(deletedMovimentacao)
         }catch(error){
             console.log(error)

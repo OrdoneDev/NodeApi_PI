@@ -7,9 +7,9 @@ const router = Router()
 
 router
     .get("/tipos", getAll)
-    .get("/tipos/:id", getTipo)
+    .get("/tipos/:id_tipo", getTipo)
     .post("/tipos", createTipo)
-    .put("/tipos/:id", updateTipo)
-    .delete("/tipos/:id", deleteTipo)
+    .put("/tipos/:id_tipo", updateTipo)
+    .delete("/tipos/:id_tipo", deleteTipo)
 
 export default router

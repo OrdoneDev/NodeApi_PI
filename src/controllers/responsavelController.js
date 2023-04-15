@@ -7,10 +7,10 @@ const ResponsavelController = {
     },
 
     getResponsavel: async (req, res) => {
-        const { id } = req.params
+        const { id_responsavel } = req.params
 
         try{
-            const responsavel = await Responsavel.findByPk(id)
+            const responsavel = await Responsavel.findByPk(id_responsavel)
             return res.status(200).json(responsavel)
         }catch(error){
             console.log(error)
@@ -32,12 +32,12 @@ const ResponsavelController = {
     },
 
     updateResponsavel: async(req, res) => {
-        const { id } = req.params
+        const { id_responsavel } = req.params
         const { nome, cargo, setor } = req.body
         const responsavelDTO = { nome, cargo, setor }
 
         try{
-            const updatedResponsavel = await Responsavel.update(responsavelDTO, {where: { id }, returning: true})
+            const updatedResponsavel = await Responsavel.update(responsavelDTO, {where: { id_responsavel }, returning: true})
             return res.status(204).json(updatedResponsavel)
         }catch(error){
             console.log(error)
@@ -46,10 +46,10 @@ const ResponsavelController = {
     },
 
     deleteResponsavel: async(req, res) => {
-        const { id } = req.params
+        const { id_responsavel } = req.params
 
         try{
-            const deletedResponsavel = await Responsavel.destroy({where: { id }})
+            const deletedResponsavel = await Responsavel.destroy({where: { id_responsavel }})
             return res.status(204).json(deletedResponsavel)
         }catch(error){
             console.log(error)
