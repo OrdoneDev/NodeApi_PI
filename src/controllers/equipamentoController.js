@@ -1,8 +1,15 @@
 import Equipamento from "../models/equipamento.js"
+import Tipo from "../models/tipo.js"
 
 const EquipamentoController = {
     getAll: async (_, res) => {
-        const equipamentos = await Equipamento.findAll()
+        const equipamentos = await Equipamento.findAll({
+            order: [['id', 'DESC']],
+            include: [{
+                attributes: ['nome'],
+                model: Tipo
+            }]
+        })
         return res.status(200).json(equipamentos)
     },
 
@@ -23,6 +30,7 @@ const EquipamentoController = {
         const equipamentoDTO = { id_tipo, nome, descricao, unidade_medida, codigo_sap}
 
         try{
+            console.log(equipamentoDTO)
             const newEquipamento = await Equipamento.create(equipamentoDTO)
             return res.status(201).json(newEquipamento)
         }catch(error){

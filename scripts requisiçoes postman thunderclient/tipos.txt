@@ -1,29 +1,36 @@
-[
-    {
-        "nome": "Painel de operação"
-    },
-    {
-        "nome": "Fonte chaveada"
-    },
-    {
-        "nome": "Modulo de potencia"
-    },
-    {
-        "nome": "Motor"
-    },
-    {
-        "nome": "CLP"
-    },
-    {
-        "nome": "Modulo IO"
-    },
-    {
-        "nome": "Inversor de frequencia"
-    },
-    {
-        "nome": "Modulo IO"
-    },
-    {
-        "nome": "Encoder"
-    }
-]
+{
+    "nome": "Teclados"
+},
+{
+    "nome": "Monitores"
+},
+{
+    "nome": "Impressoras"
+},
+{
+    "nome": "Paineis de operação"
+},
+{
+    "nome": "Fontes chaveada"
+},
+{
+    "nome": "Modulos de potencia"
+},
+{
+    "nome": "Motores"
+},
+{
+    "nome": "CLP"
+},
+{
+    "nome": "Modulos IO"
+},
+{
+    "nome": "Inversores de frequencia"
+},
+{
+    "nome": "Modulos IO"
+},
+{
+    "nome": "Encoders"
+},

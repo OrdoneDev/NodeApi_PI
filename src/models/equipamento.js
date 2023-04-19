@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize"
 import database from "../config/database.js"
+import Tipos from "./tipo.js"
 
 const Equipamento = database.define('equipamento', {
     id_equipamento: {
@@ -10,11 +11,7 @@ const Equipamento = database.define('equipamento', {
     },
     id_tipo: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'tipo',
-            key: 'id_tipo'
-        }
+        allowNull: false
     },
     nome: {
         type: Sequelize.STRING(100),
@@ -33,5 +30,7 @@ const Equipamento = database.define('equipamento', {
         allowNull: true
     }
 })
+
+Equipamento.belongsTo(Tipos, {foreignKey: 'id_tipo', allowNull: false})
 
 export default Equipamento

@@ -1,0 +1,21 @@
+{
+    "id_tipo": 1,
+    "nome":"Teclado marca Y",
+    "descricao": "Teclado dobrável",
+    "unidade_medida": "UN",
+    "codigo_sap": "ABV145"
+},
+{
+    "id_tipo": 2,
+    "nome":"Monitor K10",
+    "descricao": "Monitor 8K 2030",
+    "unidade_medida": "KG",
+    "codigo_sap": "BGDF515"
+},
+{
+    "id_tipo": 3,
+    "nome":"yImpressora",
+    "descricao": "Impressora térmica",
+    "unidade_medida": "UN",
+    "codigo_sap": "BGDF514"
+},

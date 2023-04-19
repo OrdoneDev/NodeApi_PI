@@ -1,0 +1,20 @@
+{
+    "nome":"David Ordone",
+    "cargo":"Gerente de projeto",
+    "setor": "Administrativo"
+},
+{
+    "nome":"Matheus Mauricio",
+    "cargo":"Manutentor",
+    "setor":"Manutenção"
+},
+{
+    "nome":"Lucas Ferreira",
+    "cargo":"Equipe laboratório",
+    "setor":"Manutenção"
+},
+{
+    "nome":"Kevin Jesus",
+    "cargo":"Manutentor",
+    "setor":"Manutençao"
+}

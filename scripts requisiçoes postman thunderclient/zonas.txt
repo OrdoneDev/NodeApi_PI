@@ -1,0 +1,12 @@
+{
+    "nome": "Armario 01",
+    "descricao": "Aguardando componente"
+},
+{
+    "nome": "Armario 02",
+    "descricao": "Aguardando os reparos"
+},
+{
+    "nome": "Armario 03",
+    "descricao": "Aguardando os testes"
+}
