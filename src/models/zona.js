@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize"
 import database from "../config/database.js"
 
-const Zona = database.define('zona', {
+const Zona = database.define('zonas', {
     id_zona: {
         type: Sequelize.INTEGER,
         autoIncrement: true,

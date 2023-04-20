@@ -1,8 +1,27 @@
 import Movimentacao from "../models/movimentacao.js"
+import Equipamento from "../models/equipamento.js"
+import Zona from "../models/zona.js"
+import Responsavel from "../models/responsavel.js"
 
 const MovimentacaoController = {
     getAll: async (_, res) => {
-        const movimentacoes = await Movimentacao.findAll()
+        const movimentacoes = await Movimentacao.findAll({
+            include: [
+                {
+                    attributes: ['id_tipo', 'nome', 'descricao', 'unidade_medida', 'codigo_sap'],
+                    model: Equipamento
+                },
+                {
+                    attributes: ['nome', 'descricao'],
+                    model: Zona
+                },
+                {
+                    attributes: ['nome', 'cargo', 'setor'],
+                    model: Responsavel
+                }
+            ]
+        })
+
         return res.status(200).json(movimentacoes)
     },
 
@@ -10,7 +29,24 @@ const MovimentacaoController = {
         const { id_movimentacao } = req.params
 
         try{
-            const movimentacao = await Movimentacao.findByPk(id_movimentacao)
+            const movimentacao = await Movimentacao.findOne({
+                where: {id_movimentacao: id_movimentacao},
+                include: [
+                    {
+                        attributes: ['id_tipo', 'nome', 'descricao', 'unidade_medida', 'codigo_sap'],
+                        model: Equipamento
+                    },
+                    {
+                        attributes: ['nome', 'descricao'],
+                        model: Zona
+                    },
+                    {
+                        attributes: ['nome', 'cargo', 'setor'],
+                        model: Responsavel
+                    }
+                ]
+            })
+
             return res.status(200).json(movimentacao)
         }catch(error){
             console.log(error)

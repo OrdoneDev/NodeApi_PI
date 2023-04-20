@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize"
 import database from "../config/database.js"
 
-const Responsavel = database.define('responsavel', {
+const Responsavel = database.define('responsavels', {
     id_responsavel: {
         type: Sequelize.INTEGER,
         autoIncrement: true,

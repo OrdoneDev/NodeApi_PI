@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize"
 import database from "../config/database.js"
 
-const Tipo = database.define('tipo', {
+const Tipo = database.define('tipos', {
     id_tipo: {
         type: Sequelize.INTEGER,
         autoIncrement: true,

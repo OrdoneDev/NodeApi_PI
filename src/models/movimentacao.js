@@ -1,7 +1,10 @@
 import { Sequelize } from "sequelize"
 import database from "../config/database.js"
+import Equipamentos from "./equipamento.js"
+import Zonas from "./zona.js"
+import Responsaveis from "./responsavel.js"
 
-const Movimentacao = database.define('movimentacao', {
+const Movimentacao = database.define('movimentacaos', {
     id_movimentacao: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -10,27 +13,15 @@ const Movimentacao = database.define('movimentacao', {
     },
     id_equipamento: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-            model:'equipamento',
-            key: 'id_equipamento'
-        }
+        allowNull: false
     },
     id_zona: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'zona',
-            key: 'id_zona'
-        }
+        allowNull: false
     },
     id_responsavel: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'responsavel',
-            key: 'id_responsavel'
-        }
+        allowNull: false
     },
     data_entrada: {
         type: 'TIMESTAMP',
@@ -54,5 +45,9 @@ const Movimentacao = database.define('movimentacao', {
         allowNull: true
     }
 })
+
+Movimentacao.belongsTo(Equipamentos, {foreignKey: 'id_equipamento', allowNull: false})
+Movimentacao.belongsTo(Zonas, {foreignKey: 'id_zona', allowNull: false})
+Movimentacao.belongsTo(Responsaveis, {foreignKey: 'id_responsavel', allowNull: false})
 
 export default Movimentacao

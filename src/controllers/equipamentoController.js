@@ -4,12 +4,12 @@ import Tipo from "../models/tipo.js"
 const EquipamentoController = {
     getAll: async (_, res) => {
         const equipamentos = await Equipamento.findAll({
-            order: [['id', 'DESC']],
             include: [{
                 attributes: ['nome'],
                 model: Tipo
             }]
         })
+
         return res.status(200).json(equipamentos)
     },
 
@@ -17,7 +17,15 @@ const EquipamentoController = {
         const { id_equipamento } = req.params
 
         try{
-            const equipamento = await Equipamento.findByPk(id_equipamento)
+            const equipamento = await Equipamento.findOne({
+                where: {id_equipamento: id_equipamento},
+                include: [{
+                    attributes: ['nome'],
+                    model: Tipo
+                }]
+                
+            })
+            
             return res.status(200).json(equipamento)
         }catch(error){
             console.log(error)
