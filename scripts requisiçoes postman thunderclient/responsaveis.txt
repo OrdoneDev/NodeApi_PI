@@ -1,20 +1,40 @@
 {
-    "nome":"David Ordone",
-    "cargo":"Gerente de projeto",
-    "setor": "Administrativo"
+    "nome": "David Ordone",
+    "cargo": "Gerente de projeto",
+    "setor": "Administrativo",
+    "login": "david",
+    "senha": "123",
+    "email": "david@email.com.br"
 },
 {
-    "nome":"Matheus Mauricio",
-    "cargo":"Manutentor",
-    "setor":"Manutenção"
+    "nome": "Matheus Mauricio",
+    "cargo": "Manutentor",
+    "setor": "Manutenção",
+    "login": "matheus",
+    "senha": "123",
+    "email": "matheus@email.com.br"
 },
 {
-    "nome":"Lucas Ferreira",
-    "cargo":"Equipe laboratório",
-    "setor":"Manutenção"
+    "nome": "Lucas Ferreira",
+    "cargo": "Equipe laboratório",
+    "setor": "Manutenção",
+    "login": "lucas",
+    "senha": "123",
+    "email": "lucas@email.com.br"
 },
 {
-    "nome":"Kevin Jesus",
-    "cargo":"Manutentor",
-    "setor":"Manutençao"
+    "nome": "Kevin Jesus",
+    "cargo": "Manutentor",
+    "setor": "Manutençao",
+    "login": "kevin",
+    "senha": "123",
+    "email": "Kevin@email.com.br"
+},
+{
+    "nome": "Ryuichi Iwamatsu",
+    "cargo": "Gerente Geral",
+    "setor": "Manutenção",
+    "login": "ryuichi",
+    "senha": "123",
+    "email": "ryuichi@email.com.br"
 }
