@@ -4,6 +4,9 @@ import Tipo from "../models/tipo.js"
 const EquipamentoController = {
     getAll: async (_, res) => {
         const equipamentos = await Equipamento.findAll({
+            order: [
+                ['prioridade', 'DESC']
+            ],
             include: [{
                 attributes: ['nome'],
                 model: Tipo
@@ -34,8 +37,8 @@ const EquipamentoController = {
     },
 
     createEquipamento: async(req, res) => {
-        const { id_tipo, nome, descricao, unidade_medida, codigo_sap } = req.body
-        const equipamentoDTO = { id_tipo, nome, descricao, unidade_medida, codigo_sap}
+        const { id_tipo, nome, descricao, unidade_medida, codigo_sap, prioridade } = req.body
+        const equipamentoDTO = { id_tipo, nome, descricao, unidade_medida, codigo_sap, prioridade}
 
         try{
             console.log(equipamentoDTO)

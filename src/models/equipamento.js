@@ -28,6 +28,10 @@ const Equipamento = database.define('equipamentos', {
     codigo_sap: {
         type: Sequelize.STRING(50),
         allowNull: true
+    },
+    prioridade: {
+        type: Sequelize.INTEGER,
+        allowNull: false
     }
 })
 
