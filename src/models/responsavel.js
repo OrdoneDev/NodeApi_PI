@@ -19,6 +19,18 @@ const Responsavel = database.define('responsavels', {
     setor: {
         type: Sequelize.STRING(100),
         allowNull: false
+    },
+    login: {
+        type: Sequelize.STRING(100),
+        allowNull: false
+    },
+    senha: {
+        type: Sequelize.STRING(250),
+        allowNull: false
+    },
+    email: {
+        type: Sequelize.STRING(300),
+        allowNull: true
     }
 })
 

@@ -52,8 +52,8 @@ const EquipamentoController = {
 
     updateEquipamento: async(req, res) => {
         const { id_equipamento } = req.params
-        const { id_tipo, nome, descricao, unidade_medida, codigo_sap } = req.body
-        const equipamentoDTO = { id_tipo, nome, descricao, unidade_medida, codigo_sap }
+        const { id_tipo, nome, descricao, unidade_medida, codigo_sap, prioridade } = req.body
+        const equipamentoDTO = { id_tipo, nome, descricao, unidade_medida, codigo_sap, prioridade }
 
         try{
             const updatedEquipamento = await Equipamento.update(equipamentoDTO, {where: { id_equipamento }, returning: true})

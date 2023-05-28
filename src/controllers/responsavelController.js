@@ -19,8 +19,8 @@ const ResponsavelController = {
     },
 
     createResponsavel: async(req, res) => {
-        const { nome, cargo, setor } = req.body
-        const responsavelDTO = { nome, cargo, setor }
+        const { nome, cargo, setor, login, senha, email  } = req.body
+        const responsavelDTO = { nome, cargo, setor, login, senha, email }
 
         try{
             const newResponsavel = await Responsavel.create(responsavelDTO)
@@ -33,8 +33,8 @@ const ResponsavelController = {
 
     updateResponsavel: async(req, res) => {
         const { id_responsavel } = req.params
-        const { nome, cargo, setor } = req.body
-        const responsavelDTO = { nome, cargo, setor }
+        const { nome, cargo, setor, login, senha, email } = req.body
+        const responsavelDTO = { nome, cargo, setor, login, senha, email }
 
         try{
             const updatedResponsavel = await Responsavel.update(responsavelDTO, {where: { id_responsavel }, returning: true})

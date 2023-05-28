@@ -36,7 +36,7 @@ const MovimentacaoController = {
                 where: {id_movimentacao: id_movimentacao},
                 include: [
                     {
-                        attributes: ['id_tipo', 'nome', 'descricao', 'unidade_medida', 'codigo_sap'],
+                        attributes: ['id_tipo', 'nome', 'descricao', 'unidade_medida', 'codigo_sap', 'prioridade'],
                         model: Equipamento
                     },
                     {
@@ -47,6 +47,9 @@ const MovimentacaoController = {
                         attributes: ['nome', 'cargo', 'setor'],
                         model: Responsavel
                     }
+                ],
+                order: [
+                    [Equipamento, 'prioridade', 'DESC']
                 ]
             })
 
