@@ -11,6 +11,7 @@ initDatabase()
 const app = express()
 
 app.use((_, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     app.use(cors())
     next()
 })
