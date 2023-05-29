@@ -12,6 +12,7 @@ const app = express()
 
 app.use((_, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE')
     app.use(cors())
     next()
 })
