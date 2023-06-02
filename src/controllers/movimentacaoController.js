@@ -21,7 +21,8 @@ const MovimentacaoController = {
                 }
             ],
             order: [
-                [Equipamento, 'prioridade', 'DESC']
+                [Equipamento, 'prioridade', 'DESC'],
+                ['data_entrada', 'ASC']
             ]
         })
 
@@ -49,7 +50,8 @@ const MovimentacaoController = {
                     }
                 ],
                 order: [
-                    [Equipamento, 'prioridade', 'DESC']
+                    [Equipamento, 'prioridade', 'DESC'],
+                    ['data_entrada', 'ASC']
                 ]
             })
 
