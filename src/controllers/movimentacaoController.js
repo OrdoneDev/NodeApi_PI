@@ -29,6 +29,36 @@ const MovimentacaoController = {
         return res.status(200).json(movimentacoes)
     },
 
+    getAllByEquipamento: async (req, res) => {
+        const { id_equipamento } = req.params
+
+        console.log(id_equipamento)
+
+        const movimentacoes = await Movimentacao.findAll({
+            where: { id_equipamento: id_equipamento },
+            include: [
+                {
+                    attributes: ['id_tipo', 'nome', 'descricao', 'unidade_medida', 'codigo_sap', 'prioridade'],
+                    model: Equipamento
+                },
+                {
+                    attributes: ['nome', 'descricao'],
+                    model: Zona
+                },
+                {
+                    attributes: ['nome', 'cargo', 'setor'],
+                    model: Responsavel
+                }
+            ],
+            order: [
+                [Equipamento, 'prioridade', 'DESC'],
+                ['data_entrada', 'ASC']
+            ]
+        })
+
+        return res.status(200).json(movimentacoes)
+    },
+
     getMovimentacao: async (req, res) => {
         const { id_movimentacao } = req.params
 
