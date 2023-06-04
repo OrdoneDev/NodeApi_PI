@@ -1,4 +1,5 @@
 import Equipamento from "../models/equipamento.js"
+import Movimentacao from "../models/movimentacao.js"
 import Tipo from "../models/tipo.js"
 
 const EquipamentoController = {
@@ -68,8 +69,10 @@ const EquipamentoController = {
         const { id_equipamento } = req.params
 
         try{
+            const movimentacoes = await Movimentacao.destroy({where: { id_equipamento }})
+
             const deletedEquipemento = await Equipamento.destroy({where: { id_equipamento }})
-            return res.status(204).json(deletedEquipemento)
+            return res.status(204).json(deletedEquipemento + '\n' + movimentacoes)
         }catch(error){
             console.log(error)
             return res.status(500).json({message: `Ocorreu um erro ao tentar deletar o equipamento, contate a equipe de suporte.`})
