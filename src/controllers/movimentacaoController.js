@@ -2,6 +2,8 @@ import Movimentacao from "../models/movimentacao.js"
 import Equipamento from "../models/equipamento.js"
 import Zona from "../models/zona.js"
 import Responsavel from "../models/responsavel.js"
+import sequelize from "../config/database.js"
+import { QueryTypes } from "sequelize"
 
 const MovimentacaoController = {
     getAll: async (_, res) => {
@@ -32,8 +34,6 @@ const MovimentacaoController = {
     getAllByEquipamento: async (req, res) => {
         const { id_equipamento } = req.params
 
-        console.log(id_equipamento)
-
         const movimentacoes = await Movimentacao.findAll({
             where: { id_equipamento: id_equipamento },
             include: [
@@ -55,6 +55,23 @@ const MovimentacaoController = {
                 ['data_entrada', 'ASC']
             ]
         })
+
+        return res.status(200).json(movimentacoes)
+    },
+
+    getAllByYear: async (req, res) => {
+        const { year } = req.params
+
+        console.log(year)
+
+        const movimentacoes = await
+            sequelize.query(
+                'SELECT data_entrada, data_saida FROM movimentacaos WHERE strftime("%Y", data_entrada) = :data_entrada',
+                {
+                    replacements: {data_entrada: year},
+                    type: QueryTypes.SELECT
+                }
+            )
 
         return res.status(200).json(movimentacoes)
     },
