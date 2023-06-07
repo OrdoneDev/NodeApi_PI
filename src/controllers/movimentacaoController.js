@@ -62,8 +62,6 @@ const MovimentacaoController = {
     getAllByYear: async (req, res) => {
         const { year } = req.params
 
-        console.log(year)
-
         const movimentacoes = await
             sequelize.query(
                 'SELECT data_entrada, status, data_saida FROM movimentacaos WHERE strftime("%Y", data_entrada) = :data_entrada',
