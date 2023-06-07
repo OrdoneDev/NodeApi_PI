@@ -66,7 +66,7 @@ const MovimentacaoController = {
 
         const movimentacoes = await
             sequelize.query(
-                'SELECT data_entrada, data_saida FROM movimentacaos WHERE strftime("%Y", data_entrada) = :data_entrada',
+                'SELECT data_entrada, status, data_saida FROM movimentacaos WHERE strftime("%Y", data_entrada) = :data_entrada',
                 {
                     replacements: {data_entrada: year},
                     type: QueryTypes.SELECT
