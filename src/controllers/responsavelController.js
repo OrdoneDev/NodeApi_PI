@@ -1,9 +1,41 @@
 import Responsavel from "../models/responsavel.js"
+import jwt from "jsonwebtoken"
 
 const ResponsavelController = {
     getAll: async (_, res) => {
         const responsaveis = await Responsavel.findAll()
         return res.status(200).json(responsaveis)
+    },
+
+    getAutenticacao: async (req, res) => {
+        const { login, senha } = req.body
+        const secretKey = process.env.SECRET_KEY
+        
+        try {
+            const responsavel = await Responsavel.findOne({where: { login }})
+
+            if (!responsavel)
+                return res.status(401).json({message: `Usuário não está cadastrado no sistema.`})
+
+            if (senha !== responsavel.senha)
+                return res.status(401).json({message: `Senha inválida!`})
+
+            const payload = {
+                id: responsavel.id_responsavel,
+                email: responsavel.email,
+                login: responsavel.login
+            }
+
+            const options = {
+                expiresIn: '1h'
+            }
+
+            const token = jwt.sign(payload, secretKey, options)
+
+            return res.status(200).json(token)
+        }catch(error){
+            return res.status(500).json({message: `Ocorreu um erro ao tentar efetuar o login, contate a equipe de suporte.`})
+        }
     },
 
     getResponsavel: async (req, res) => {

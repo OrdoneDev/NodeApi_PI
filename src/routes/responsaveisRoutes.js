@@ -1,15 +1,17 @@
 import { Router } from "express"
+import verifyToken from "../middlewares/verifyToken.js"
 import ResponsavelController from "../controllers/responsavelController.js"
 
-const { getAll, getResponsavel, createResponsavel, updateResponsavel, deleteResponsavel } = ResponsavelController
+const { getAutenticacao, getAll, getResponsavel, createResponsavel, updateResponsavel, deleteResponsavel } = ResponsavelController
 
 const router = Router()
 
 router
-    .get("/responsaveis", getAll)
-    .get("/responsaveis/:id_responsavel", getResponsavel)
-    .post("/responsaveis", createResponsavel)
-    .put("/responsaveis/:id_responsavel", updateResponsavel)
-    .delete("/responsaveis/:id_responsavel", deleteResponsavel)
+    .get("/login", getAutenticacao)
+    .get("/responsaveis", verifyToken, getAll)
+    .get("/responsaveis/:id_responsavel", verifyToken, getResponsavel)
+    .post("/responsaveis", verifyToken, createResponsavel)
+    .put("/responsaveis/:id_responsavel", verifyToken, updateResponsavel)
+    .delete("/responsaveis/:id_responsavel", verifyToken, deleteResponsavel)
 
 export default router
