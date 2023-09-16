@@ -1,4 +1,6 @@
 import express from "express"
+import https from "https"
+import { options } from "./config/certificados.js"
 import { initDatabase } from "./config/database.js"
 import routes from "./routes/index.js"
 import * as dotenv from 'dotenv'
@@ -17,6 +19,8 @@ app.use((_, res, next) => {
     app.use(cors())
     next()
 })
+
+https.createServer(options, app).listen(3000)
 
 routes(app)
 
