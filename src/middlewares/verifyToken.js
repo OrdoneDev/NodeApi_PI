@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 
-function verifyToken(req, res, next) {
+export default function verifyToken(req, res, next) {
     const token = req.header('Authorization')
 
     if (!token) 
@@ -15,5 +15,3 @@ function verifyToken(req, res, next) {
         next()
     })
 }
-
-export default verifyToken

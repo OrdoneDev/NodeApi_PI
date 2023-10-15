@@ -7,7 +7,7 @@ const { getAll, getEquipamento, createEquipamento, updateEquipamento, deleteEqui
 const router = Router()
 
 router
-    .get("/equipamentos", verifyToken, getAll)
+    .get("/equipamentos", getAll)
     .get("/equipamentos/:id_equipamento", verifyToken, getEquipamento)
     .post("/equipamentos", verifyToken, createEquipamento)
     .put("/equipamentos/:id_equipamento", verifyToken, updateEquipamento)
