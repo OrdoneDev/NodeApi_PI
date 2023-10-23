@@ -10,6 +10,7 @@ router
     .get("/login", getAutenticacao)
     .get("/responsaveis", verifyToken, getAll)
     .get("/responsaveis/:id_responsavel", verifyToken, getResponsavel)
+    .post("/login", getAutenticacao)
     .post("/responsaveis", verifyToken, createResponsavel)
     .put("/responsaveis/:id_responsavel", verifyToken, updateResponsavel)
     .delete("/responsaveis/:id_responsavel", verifyToken, deleteResponsavel)

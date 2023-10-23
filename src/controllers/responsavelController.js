@@ -8,7 +8,8 @@ const ResponsavelController = {
     },
 
     getAutenticacao: async (req, res) => {
-        const { login, senha } = req.body
+        const { data } = req.body
+        const { login, senha } = data ? data : req.body 
         const secretKey = process.env.SECRET_KEY
         
         try {
