@@ -9,6 +9,7 @@ const router = Router()
 router
     .get("/zonas", verifyToken, getAll)
     .get("/zonas/:id_zona", verifyToken, getZona)
+    .post("/zonas/:id_zona", verifyToken, getZona)
     .post("/zonas", verifyToken, createZona)
     .put("/zonas/:id_zona", verifyToken, updateZona)
     .delete("/zonas/:id_zona", verifyToken, deleteZona)

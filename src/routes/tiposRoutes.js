@@ -9,6 +9,7 @@ const router = Router()
 router
     .get("/tipos", verifyToken, getAll)
     .get("/tipos/:id_tipo", verifyToken, getTipo)
+    .post("/tipos/:id_tipo", verifyToken, getTipo)
     .post("/tipos", verifyToken, createTipo)
     .put("/tipos/:id_tipo", verifyToken, updateTipo)
     .delete("/tipos/:id_tipo", verifyToken, deleteTipo)

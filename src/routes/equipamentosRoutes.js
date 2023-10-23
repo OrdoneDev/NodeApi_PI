@@ -9,6 +9,7 @@ const router = Router()
 router
     .get("/equipamentos", getAll)
     .get("/equipamentos/:id_equipamento", verifyToken, getEquipamento)
+    .post("/equipamentos/:id_equipamento", verifyToken, getEquipamento)
     .post("/equipamentos", verifyToken, createEquipamento)
     .put("/equipamentos/:id_equipamento", verifyToken, updateEquipamento)
     .delete("/equipamentos/:id_equipamento", verifyToken, deleteEquipamento)
