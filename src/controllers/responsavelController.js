@@ -29,7 +29,7 @@ const ResponsavelController = {
             }
 
             const options = {
-                expiresIn: '1h'
+                expiresIn: '8h'
             }
 
             const token = jwt.sign(payload, secretKey, options)
