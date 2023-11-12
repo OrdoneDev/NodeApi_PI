@@ -7,6 +7,10 @@ const ResponsavelController = {
         return res.status(200).json(responsaveis)
     },
 
+    confirmToken: async (req, res) => {
+        return res.status(200).json({return: true})
+    },
+
     getAutenticacao: async (req, res) => {
         const { data } = req.body
         const { login, senha } = data ? data : req.body 
