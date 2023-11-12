@@ -14,10 +14,11 @@ const ResponsavelController = {
     getAutenticacao: async (req, res) => {
         const { data } = req.body
         const { login, senha } = data ? data : req.body 
+        const loginLower = login.toLowerCase()
         const secretKey = process.env.SECRET_KEY
         
         try {
-            const responsavel = await Responsavel.findOne({where: { login }})
+            const responsavel = await Responsavel.findOne({where: { login: loginLower }})
             const id_responsavel = responsavel.id_responsavel
 
             if (!responsavel)
