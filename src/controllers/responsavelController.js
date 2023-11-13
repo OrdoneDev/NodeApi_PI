@@ -1,4 +1,5 @@
 import Responsavel from "../models/responsavel.js"
+import descriptografar from "../utils/rsa.js"
 import jwt from "jsonwebtoken"
 
 const ResponsavelController = {
@@ -13,7 +14,8 @@ const ResponsavelController = {
 
     getAutenticacao: async (req, res) => {
         const { data } = req.body
-        const { login, senha } = data ? data : req.body 
+        let { login, senha } = data ? data : req.body 
+        senha = descriptografar(senha)
         const loginLower = login.toLowerCase()
         const secretKey = process.env.SECRET_KEY
         

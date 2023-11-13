@@ -20,6 +20,7 @@
   "author": "Kevin Alexsander de Jesus",
   "license": "ISC",
   "dependencies": {
+    "big-integer": "^1.6.51",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
