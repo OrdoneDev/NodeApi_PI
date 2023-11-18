@@ -21,10 +21,11 @@ const ResponsavelController = {
         
         try {
             const responsavel = await Responsavel.findOne({where: { login: loginLower }})
-            const id_responsavel = responsavel.id_responsavel
 
             if (!responsavel)
                 return res.status(401).json({message: `Usuário não está cadastrado no sistema.`})
+
+            const id_responsavel = responsavel.id_responsavel
 
             if (senha !== responsavel.senha)
                 return res.status(401).json({message: `Senha inválida!`})
@@ -43,6 +44,7 @@ const ResponsavelController = {
 
             return res.status(200).json({ id_responsavel, token })
         }catch(error){
+            console.log(error.message)
             return res.status(500).json({message: `Ocorreu um erro ao tentar efetuar o login, contate a equipe de suporte.`})
         }
     },
@@ -67,7 +69,6 @@ const ResponsavelController = {
             const newResponsavel = await Responsavel.create(responsavelDTO)
             return res.status(201).json(newResponsavel)
         }catch(error){
-            console.log(error)
             return res.status(500).json({message: 'Ocorreu um erro ao criar o responsavel, contate a equipe de suporte.'})
         }
     },
