@@ -44,7 +44,6 @@ const ResponsavelController = {
 
             return res.status(200).json({ id_responsavel, token })
         }catch(error){
-            console.log(error.message)
             return res.status(500).json({message: `Ocorreu um erro ao tentar efetuar o login, contate a equipe de suporte.`})
         }
     },
