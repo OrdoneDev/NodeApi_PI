@@ -42,7 +42,7 @@ const ResponsavelController = {
 
             const token = jwt.sign(payload, secretKey, options)
 
-            return res.status(200).json({ id_responsavel, token })
+            return res.status(200).json({ responsavel, id_responsavel, token })
         }catch(error){
             return res.status(500).json({message: `Ocorreu um erro ao tentar efetuar o login, contate a equipe de suporte.`})
         }
